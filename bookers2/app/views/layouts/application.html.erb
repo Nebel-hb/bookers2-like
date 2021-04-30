@@ -25,31 +25,31 @@
 
 
    <% if user_signed_in? %>
-      <li class="nav-item">
-        <%= link_to user_path(current_user.id), method: :get do%><i class="fas fa-home"></i>Home
+      <li>
+        <%= link_to user_path(current_user.id), class: "nav-link text-light", method: :get do%><i class="fas fa-home"></i>&nbsp;Home
       <% end %></li>
-      <li class="nav-item">
-        <%= link_to  users_path method: :get do%><i class="fas fa-users"></i>Users
+      <li>
+        <%= link_to  users_path, class: "nav-link text-light", method: :get do%><i class="fas fa-users"></i>&nbsp;Users
       <% end %></li>
-      <li class="nav-item">
-        <%= link_to  books_path method: :get do%><i class="fas fa-book-open"></i>Books
+      <li>
+        <%= link_to  books_path, class: "nav-link text-light", method: :get do%><i class="fas fa-book-open"></i>&nbsp;Books
       <% end %> </li>
-      <li class="nav-item">
-        <%= link_to  destroy_user_session_path method: :delete do%><i class="fas fa-sign-out-alt"></i>Log out
+      <li>
+        <%= link_to  destroy_user_session_path , class: "nav-link text-light", method: :delete do%><i class="fas fa-sign-out-alt"></i>&nbsp;logout
       <% end %></li>
 
       <% else %>
-      <li class="nav-item">
-         <%= link_to  root_path  method: :get do%><i class="fas fa-home"></i>Home
+      <li>
+         <%= link_to  root_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-home"></i>&nbsp;Home
       <% end %></li>
-      <li class="nav-item">
-         <%= link_to  home_path  method: :get do%><i class="fas fa-link"></i>About
+      <li>
+         <%= link_to  home_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-link"></i>&nbsp;About
       <% end %></li>
-      <li class="nav-item">
-        <%= link_to  new_user_registration_path method: :get do%><i class="fas fa-user-plus"></i>sign up
+      <li>
+        <%= link_to  new_user_registration_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-user-plus"></i>&nbsp;sign up
       <% end %></li>
-      <li class="nav-item">
-        <%= link_to new_user_session_path method: :get do%><i class="fas fa-sign-in-alt"></i>login
+      <li>
+        <%= link_to new_user_session_path ,class: "nav-link text-light", method: :get do%><i class="fas fa-sign-in-alt"></i>&nbsp;login
       <% end %></li>
 
     <% end %>
@@ -59,7 +59,7 @@
   </div>
   </nav>
 </header>
-<main><p id="notice">
+<main><p class="text-success">
 <% flash.each do |message_type, message| %>
   <%= message %>
 <% end %>

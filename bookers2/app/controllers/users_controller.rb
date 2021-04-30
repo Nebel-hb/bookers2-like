@@ -5,16 +5,14 @@ class UsersController < ApplicationController
   @books = Book.all
   @user_books = @user.books
   @book = Book.new
+  @relationship = current_user.relationships.find_by(follow_id: @user.id)
+  @set_relationship = current_user.relationships.new
   end
 
   def index
     @users = User.all
     @book = Book.new
-
-    # @user = User.find(params[:id])
-    # @book = Book.new
   end
-
 
   def edit
     @user = User.find(params[:id])
@@ -29,10 +27,18 @@ class UsersController < ApplicationController
     else
     flash.now[:alert] = 'You have updated user error.'
     render :edit
-
     end
-
   end
+
+def followings
+  @user = User.find(params[:id])
+  @users = @user.followings.all
+end
+
+def followers
+  @user = User.find(params[:id])
+  @users = @user.followers.all
+end
 
  private
 
