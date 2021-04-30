@@ -1,0 +1,12 @@
+
+<% if book.liked_by?(current_user) %>
+  <%= link_to book_likes_path(book.id), method: :delete, class: "fas fa-heart", style: 'color: red', remote: true  do %>
+  <%= book.likes.count %>
+  <% end %>
+
+<% else %>
+  <%= link_to book_likes_path(book.id), method: :post, class: "far fa-heart", remote: true do %>
+  <% end %>
+  <%= book.likes.count %>
+
+<% end %>

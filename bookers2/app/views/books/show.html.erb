@@ -20,6 +20,13 @@
       <td>
         <%= @book.body %>
       </td>
+
+      <td id='like-button_#{ book.id }'>
+        <%= render  'books/like-button', book: @book %>
+      </td>
+
+
+
       <td>
         <% if @book.user == current_user %>
         <%= link_to "Edit", edit_book_path(@book), class: 'btn btn-sm btn-success' %>

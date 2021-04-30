@@ -27,7 +27,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @book_new = Book.new
-    
+    @books = Book.all
   end
   def edit
      @user = User.find(params[:id])
@@ -45,7 +45,7 @@ class BooksController < ApplicationController
     render :edit
     end
   end
-  
+
 
   def destroy
     @book = Book.find(params[:id])

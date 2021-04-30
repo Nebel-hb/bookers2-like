@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get '/home/about' => 'homes#show' , as: 'home'
 
-  resources :books, only: [:new, :create, :edit, :index, :show, :update, :destroy]
+  resources :books, only: [:new, :create, :edit, :index, :show, :update, :destroy] do
+    resource :likes, only: [:create, :destroy]
+  end
+
   resources :relationships, only: [:create, :destroy]
   resources :users, only: [:show, :edit, :update, :index ] do
     get :followings, on: :member
